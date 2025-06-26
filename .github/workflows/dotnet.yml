@@ -26,6 +26,16 @@ jobs:
       run: dotnet build ${{ env.solutionPath }} --no-restore
     - name: Test
       run: dotnet test ${{ env.solutionPath }} --no-build --verbosity normal
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: drop
+        path: ${{ github.workspace }}${{ env.solutionPath }}
+        warn: Output a warning but do not fail the action
+        error: Fail the action with an error message
+        if-no-files-found: error
+        retention-days: 90
+        include-hidden-files: true
   
   test:
     runs-on: ubuntu-latest
