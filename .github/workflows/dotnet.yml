@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v4.6.2
       with:
         name: drop
-        path: ${{ github.workspace }}${{ env.solutionPath }}
+        path: ${{ github.workspace }}\WinNetCoreApp
         warn: Output a warning but do not fail the action
         error: Fail the action with an error message
         if-no-files-found: error
